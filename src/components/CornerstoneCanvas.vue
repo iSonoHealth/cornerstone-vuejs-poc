@@ -129,7 +129,7 @@ export default {
       cornerstoneTools.scrollIndicator.enable(canvas) // Position indicator
 
       // Mouse
-      cornerstoneTools.wwwc.activate(canvas, 1) // left click
+      cornerstoneTools.arrowAnnotate.activate(canvas, 1) // left click
       cornerstoneTools.pan.activate(canvas, 2) // middle click
       cornerstoneTools.zoom.activate(canvas, 4) // right click
 

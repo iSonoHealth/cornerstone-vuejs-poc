@@ -24,11 +24,11 @@
 import $ from 'jquery'
 import Hammer from 'hammerjs'
 import * as cornerstoneMath from 'cornerstone-math'
-
 // Cornerstone Libraries
 import * as cornerstone from 'cornerstone-core'
 import * as cornerstoneTools from 'cornerstone-tools'
 import * as cornerstoneWebImageLoader from 'cornerstone-web-image-loader'
+// import * as HelloWorldTool from './HelloTool'
 
 // Specify external dependencies
 // TODO: Cornerstone really should show a better error message when these aren't set
@@ -130,8 +130,20 @@ export default {
 
       // Mouse
       cornerstoneTools.arrowAnnotate.activate(canvas, 1) // left click
+      // console.log(HelloWorldTool)
       cornerstoneTools.pan.activate(canvas, 2) // middle click
       cornerstoneTools.zoom.activate(canvas, 4) // right click
+
+      cornerstoneTools.arrowAnnotate.mouseDownCallback = (evt, o) => {
+        const stack = new Error().stack
+        console.log(stack)
+        console.log(evt)
+        console.log(o)
+      }
+      // cornerstoneTools.arrowAnnotate.preMouseDownCallback = (e) => {
+      //   console.log(e)
+      //   console.log(this)
+      // }
 
       // Touch / Gesture
       cornerstoneTools.wwwcTouchDrag.activate(canvas) // - Drag

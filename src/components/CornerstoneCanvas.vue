@@ -56,7 +56,7 @@ export default {
     }
   },
   mounted () {
-    let _self = this
+    // let _self = this
     // this.listenForCornerstoneImageRendered()
     // this.listenForCornerstoneImageLoaded()
     this.listenForWindowResize()
@@ -74,8 +74,8 @@ export default {
       cornerstone.displayImage(canvas, image)
 
       // TODO: It really should be possible to "turn on tools" before an image is loaded
-      if (_self.isInitLoad) {
-        _self.initCanvasTools()
+      if (this.isInitLoad) {
+        this.initCanvasTools()
       }
     })
   },
@@ -117,7 +117,7 @@ export default {
       console.log(`csTools.arrowAnnotate object is: `)
       console.log(csTools.arrowAnnotate)
       // Mouse
-      csTools.arrowAnnotate.activate(canvas, 4) // right click
+      // csTools.arrowAnnotate.activate(canvas, 4) // right click
       // console.log(HelloWorldTool)
       csTools.pan.activate(canvas, 2) // middle click
       csTools.length.activate(canvas, 1) // left click

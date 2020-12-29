@@ -18,19 +18,19 @@
         <tr>
           <td>Left Click + Drag</td>
           <td>One Finger Touch + Drag</td>
-          <td>Adjust window width and center</td>
+          <td>Length Tool</td>
         </tr>
         <tr>
           <td>Middle Click + Drag</td>
           <td>Two Finger Touch + Drag</td>
           <td>Pan / Drag Image</td>
         </tr>
-        <tr>
-          <td>Right Click + Drag</td>
-          <td>Two Finger + Pinch/Expand</td>
-          <td>Length Tool</td>
-          <!--<td>Zoom / Scale Image</td>-->
-        </tr>
+<!--        <tr>-->
+<!--          <td>Right Click + Drag</td>-->
+<!--          <td>Two Finger + Pinch/Expand</td>-->
+<!--          <td>Length Tool</td>-->
+<!--          &lt;!&ndash;<td>Zoom / Scale Image</td>&ndash;&gt;-->
+<!--        </tr>-->
 <!--        <tr>-->
 <!--          <td>Mouse Wheel Scroll</td>-->
 <!--          <td>Two Finger Scroll</td>-->

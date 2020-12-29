@@ -69,15 +69,16 @@ export default {
     // The webImageLoader uses this to make an xhr request to fetch an image
     // Under the hood, it creates a cornerstone "Image" object needed for display
     const imageUrl = this.baseUrl + this.exampleStudyImageIds[this.imageId]
-    cornerstone.loadImage(imageUrl).then((image) => {
-      // Display our loaded image on the target canvas
-      cornerstone.displayImage(canvas, image)
+    cornerstone.loadImage(imageUrl)
+      .then((image) => {
+        // Display our loaded image on the target canvas
+        cornerstone.displayImage(canvas, image)
 
-      // TODO: It really should be possible to "turn on tools" before an image is loaded
-      if (this.isInitLoad) {
-        this.initCanvasTools()
-      }
-    })
+        // TODO: It really should be possible to "turn on tools" before an image is loaded
+        if (this.isInitLoad) {
+          this.initCanvasTools()
+        }
+      })
   },
   beforeDestroy () {
     // Remove jQuery event listeners
@@ -86,15 +87,14 @@ export default {
   },
   methods: {
     initCanvasTools: function () {
-      let _self = this
       let canvas = this.$refs.canvas
 
       this.isInitLoad = false
 
       // Find imageIds for canvasStack
       let allImageIds = []
-      this.exampleStudyImageIds.forEach(function (imageId) {
-        let imageUrl = _self.baseUrl + imageId
+      this.exampleStudyImageIds.forEach((imageId) => {
+        let imageUrl = this.baseUrl + imageId
         allImageIds.push(imageUrl)
       })
 
@@ -119,8 +119,8 @@ export default {
       // Mouse
       // csTools.arrowAnnotate.activate(canvas, 4) // right click
       // console.log(HelloWorldTool)
-      csTools.pan.activate(canvas, 2) // middle click
       csTools.length.activate(canvas, 1) // left click
+      csTools.pan.activate(canvas, 2) // middle click
       // csTools.zoom.activate(canvas, 4) // right click
       let savedEventHandler = csTools.arrowAnnotate.mouseDownCallback
       csTools.arrowAnnotate.toolSelectedCallback = (evt, o, ...args) => {
@@ -149,7 +149,9 @@ export default {
       // }
 
       // Touch / Gesture
-      csTools.wwwcTouchDrag.activate(canvas) // - Drag
+      csTools.lengthTouch.activate(canvas)
+      // wwwc changes brightness upon touch and drag
+      // csTools.wwwcTouchDrag.activate(canvas)
       csTools.zoomTouchPinch.activate(canvas) // - Pinch
       csTools.panMultiTouch.activate(canvas) // - Multi (x2)
     },

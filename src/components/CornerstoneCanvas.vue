@@ -41,7 +41,7 @@ export default {
   },
   data () {
     return {
-      baseUrl: 'http://localhost:8080',
+      baseUrl: 'http://localhost:8086',
       // Pass in as a property, or use a computed property that looks at Vuex
       // Then... Watch for changes. On change, load the new series
       exampleStudyImageIds: [

@@ -2,7 +2,8 @@
   <div class="page-container">
     <h1>{{msg}}</h1>
 
-    <cornerstone-canvas></cornerstone-canvas>
+    <cornerstone-canvas imageId="0"></cornerstone-canvas>
+    <cornerstone-canvas imageId="1"></cornerstone-canvas>
 
     <h3>Features</h3>
     <table>
@@ -27,13 +28,14 @@
         <tr>
           <td>Right Click + Drag</td>
           <td>Two Finger + Pinch/Expand</td>
-          <td>Zoom / Scale Image</td>
+          <td>Length Tool</td>
+          <!--<td>Zoom / Scale Image</td>-->
         </tr>
-        <tr>
-          <td>Mouse Wheel Scroll</td>
-          <td>Two Finger Scroll</td>
-          <td>Iterate over images in stack</td>
-        </tr>
+<!--        <tr>-->
+<!--          <td>Mouse Wheel Scroll</td>-->
+<!--          <td>Two Finger Scroll</td>-->
+<!--          <td>Iterate over images in stack</td>-->
+<!--        </tr>-->
       </tbody>
     </table>
 

@@ -22,26 +22,7 @@
 <script>
 // External Dependencies
 import $ from 'jquery'
-import Hammer from 'hammerjs'
-import * as cornerstoneMath from 'cornerstone-math'
-// Cornerstone Libraries
-import * as cornerstone from 'cornerstone-core'
-import * as cornerstoneTools from 'cornerstone-tools'
-import * as cornerstoneWebImageLoader from 'cornerstone-web-image-loader'
-// import * as HelloWorldTool from './HelloTool'
-
-// Specify external dependencies
-// TODO: Cornerstone really should show a better error message when these aren't set
-// It's worth noting that you only need these when the cornerstone libraries are loaded as modules.
-// I'm 90% sure, when loaded with script tags, everything assumes global scope
-cornerstone.external.$ = $
-cornerstoneTools.external.$ = $
-cornerstoneTools.external.Hammer = Hammer
-cornerstoneTools.external.cornerstone = cornerstone
-cornerstoneTools.external.cornerstoneMath = cornerstoneMath
-cornerstoneWebImageLoader.external.$ = $
-cornerstoneWebImageLoader.external.cornerstone = cornerstone
-cornerstoneWebImageLoader.external.cornerstoneMath = cornerstoneMath
+import { cornerstone, csTools, cornerstoneWebImageLoader } from './csutil.js'
 
 // Here is how you register an image loader w/ Cornerstone
 // Under the hood, this image loader is also registering a "metaDataProvider"
@@ -52,6 +33,12 @@ cornerstone.registerImageLoader('https', cornerstoneWebImageLoader.loadImage)
 
 export default {
   name: 'CornerstoneCanvas',
+  props: {
+    imageId: {
+      type: Number,
+      default: 0
+    }
+  },
   data () {
     return {
       baseUrl: 'http://localhost:8080',
@@ -81,8 +68,8 @@ export default {
     // ImageId that matches our registered image loader's 'http:' prefix
     // The webImageLoader uses this to make an xhr request to fetch an image
     // Under the hood, it creates a cornerstone "Image" object needed for display
-    const imageUrl = this.baseUrl + this.exampleStudyImageIds[0]
-    cornerstone.loadImage(imageUrl).then(function (image) {
+    const imageUrl = this.baseUrl + this.exampleStudyImageIds[this.imageId]
+    cornerstone.loadImage(imageUrl).then((image) => {
       // Display our loaded image on the target canvas
       cornerstone.displayImage(canvas, image)
 
@@ -118,37 +105,53 @@ export default {
       }
 
       // Enable Inputs
-      cornerstoneTools.mouseInput.enable(canvas)
-      cornerstoneTools.mouseWheelInput.enable(canvas)
-      cornerstoneTools.touchInput.enable(canvas)
+      csTools.mouseInput.enable(canvas)
+      // csTools.mouseWheelInput.enable(canvas)
+      csTools.touchInput.enable(canvas)
 
       // Set the stack as tool state
-      cornerstoneTools.addStackStateManager(canvas, ['stack'])
-      cornerstoneTools.addToolState(canvas, 'stack', canvasStack)
-      cornerstoneTools.stackScrollWheel.activate(canvas)  // Mouse wheel
-      cornerstoneTools.scrollIndicator.enable(canvas) // Position indicator
-
+      csTools.addStackStateManager(canvas, ['stack'])
+      csTools.addToolState(canvas, 'stack', canvasStack)
+      // csTools.stackScrollWheel.activate(canvas)  // Mouse wheele
+      csTools.scrollIndicator.enable(canvas) // Position indicator
+      console.log(`csTools.arrowAnnotate object is: `)
+      console.log(csTools.arrowAnnotate)
       // Mouse
-      cornerstoneTools.arrowAnnotate.activate(canvas, 1) // left click
+      csTools.arrowAnnotate.activate(canvas, 4) // right click
       // console.log(HelloWorldTool)
-      cornerstoneTools.pan.activate(canvas, 2) // middle click
-      cornerstoneTools.zoom.activate(canvas, 4) // right click
+      csTools.pan.activate(canvas, 2) // middle click
+      csTools.length.activate(canvas, 1) // left click
+      // csTools.zoom.activate(canvas, 4) // right click
+      let savedEventHandler = csTools.arrowAnnotate.mouseDownCallback
+      csTools.arrowAnnotate.toolSelectedCallback = (evt, o, ...args) => {
+        console.error(`Arrow Tool Selected`)
+      }
 
-      cornerstoneTools.arrowAnnotate.mouseDownCallback = (evt, o) => {
+      csTools.arrowAnnotate.mouseDownCallback = (evt, o, ...args) => {
+        console.log('Arrow Annotation Callback')
+        console.log(csTools.arrowAnnotate)
+        const stack = new Error().stack
+        console.log(stack)
+        console.log(evt)
+        console.log(o)
+        savedEventHandler(evt, o, ...args)
+      }
+      csTools.zoom.mouseDownCallback = (evt, o) => {
+        console.log('zoom tool Callback')
         const stack = new Error().stack
         console.log(stack)
         console.log(evt)
         console.log(o)
       }
-      // cornerstoneTools.arrowAnnotate.preMouseDownCallback = (e) => {
+      // csTools.arrowAnnotate.preMouseDownCallback = (e) => {
       //   console.log(e)
       //   console.log(this)
       // }
 
       // Touch / Gesture
-      cornerstoneTools.wwwcTouchDrag.activate(canvas) // - Drag
-      cornerstoneTools.zoomTouchPinch.activate(canvas) // - Pinch
-      cornerstoneTools.panMultiTouch.activate(canvas) // - Multi (x2)
+      csTools.wwwcTouchDrag.activate(canvas) // - Drag
+      csTools.zoomTouchPinch.activate(canvas) // - Pinch
+      csTools.panMultiTouch.activate(canvas) // - Multi (x2)
     },
     /*
      * Window Resize

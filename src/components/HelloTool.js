@@ -5,7 +5,7 @@ console.log(csTools)
 // const BaseAnnotationTool = csTools.importInternal('base/BaseAnnotationTool')
 
 const BaseTool = csTools.importInternal('base/BaseTool')
-// const csTools = cornerstoneTools.init()
+// const csTools = csTools.init()
 
 // const BaseTool2 = csTools.importInternal('base/BaseTool')
 
@@ -19,7 +19,7 @@ export default class HelloWorldTool extends BaseTool {
   }
 
   preMouseDownCallback (evt) {
-    console.log('Hello cornerstoneTools!')
+    console.log(`Hello csTools! ${evt}`)
   }
 
   activeCallback (element) {

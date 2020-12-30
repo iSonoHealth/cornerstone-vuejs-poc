@@ -1,13 +1,13 @@
 // import * as cornerstone from 'cornerstone-core'
-// import * as csTools from 'cornerstone-tools'
+// import * as cornerstoneTools from 'cornerstone-tools'
 const csTools = window.cornerstoneTools.init()
 console.log(csTools)
-// const BaseAnnotationTool = csTools.importInternal('base/BaseAnnotationTool')
+// const BaseAnnotationTool = cornerstoneTools.importInternal('base/BaseAnnotationTool')
 
 const BaseTool = csTools.importInternal('base/BaseTool')
-// const csTools = csTools.init()
+// const cornerstoneTools = cornerstoneTools.init()
 
-// const BaseTool2 = csTools.importInternal('base/BaseTool')
+// const BaseTool2 = cornerstoneTools.importInternal('base/BaseTool')
 
 export default class HelloWorldTool extends BaseTool {
   constructor (name = 'HelloWorld') {

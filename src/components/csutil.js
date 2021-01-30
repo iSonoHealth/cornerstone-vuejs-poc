@@ -4,15 +4,15 @@ import * as cornerstoneMath from 'cornerstone-math'
 import * as cornerstone from 'cornerstone-core'
 import * as cornerstoneTools from 'cornerstone-tools'
 import * as cornerstoneWebImageLoader from 'cornerstone-web-image-loader'
-import $ from 'jquery'
+// import $ from 'jquery'
 
 // Specify external dependencies
-cornerstone.external.$ = $
-cornerstoneTools.external.$ = $
+// cornerstone.external.$ = $
+// cornerstoneTools.external.$ = $
 cornerstoneTools.external.Hammer = Hammer
 cornerstoneTools.external.cornerstone = cornerstone
 cornerstoneTools.external.cornerstoneMath = cornerstoneMath
-cornerstoneWebImageLoader.external.$ = $
+// cornerstoneWebImageLoader.external.$ = $
 cornerstoneWebImageLoader.external.cornerstone = cornerstone
 cornerstoneWebImageLoader.external.cornerstoneMath = cornerstoneMath
 

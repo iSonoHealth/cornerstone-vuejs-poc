@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@babel/runtime@7.1.2":
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.1.2.tgz#81c89935f4647706fc54541145e6b4ecfef4b8e3"
+  integrity sha512-Y3SCjmhSupzFB6wcv1KmmFucH6gDVnI30WjOcicV10ju0cZjak3Jcs67YLIXBrmZYw1xCrVeJPbycFwrqNyxpg==
+  dependencies:
+    regenerator-runtime "^0.12.0"
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
@@ -2122,32 +2129,33 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
 
-cornerstone-core@1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/cornerstone-core/-/cornerstone-core-1.1.3.tgz#e4479c86b78f8e9880a57c12b2e69e11561e6d8b"
-  integrity sha1-5EechrePjpiApXwSsuaeEVYebYs=
+cornerstone-core@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/cornerstone-core/-/cornerstone-core-2.3.0.tgz#b16430b0dc3883c795fbbd5f64d0f6357f91c889"
+  integrity sha512-1LiCfRIlQvR1j8OhF7/3pvvQvvnTYZUywEkuoEo5K5mMrlKdrQMS75uW1uXb/nXShQDJyyjtTCQSVGgv2yHA+w==
 
-cornerstone-math@0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/cornerstone-math/-/cornerstone-math-0.1.6.tgz#93b3ad72fae815383cce5180af23836550200c3a"
-  integrity sha1-k7OtcvroFTg8zlGAryODZVAgDDo=
+cornerstone-math@0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/cornerstone-math/-/cornerstone-math-0.1.7.tgz#7c55536f02e7221b05fc49a4c780bb82c234ce39"
+  integrity sha512-svsDSoqLNFM9niCV2AtV2DNmRkYztT1v80lVdbA5hkgdGdpWg5/h2On794zbqBK+aI3hNOHufERDsI4wdXGknA==
 
-cornerstone-math@^0.1.6:
+cornerstone-math@^0.1.8:
   version "0.1.9"
   resolved "https://registry.yarnpkg.com/cornerstone-math/-/cornerstone-math-0.1.9.tgz#7ce5509e8b9f465b01f7c548470725e7569859fc"
   integrity sha512-NxdooV73asEQgav1S+0e+a4K+W3CXJdLXyFkVN24qqCtmIpzZzwtw3F9KWPCekzSAJmbhtQ3HicOQj3d4vRtuw==
 
-cornerstone-tools@1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/cornerstone-tools/-/cornerstone-tools-1.1.2.tgz#6b7e31583dcd515c4813f9e37d3a603642b16ab5"
-  integrity sha1-a34xWD3NUVxIE/njfTpgNkKxarU=
+cornerstone-tools@^5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/cornerstone-tools/-/cornerstone-tools-5.1.2.tgz#d2a03341c837c9288e2b70e314136d31e85c8c46"
+  integrity sha512-MrOXOxkEuLPHd6cqJ0mwU+R9OaNk08XC1yKjUS9dF6UbIq9HdwFJ6Fj0rcIA2MXYYjVN6tFwMM8H+0k7R3KxCA==
   dependencies:
-    cornerstone-math "^0.1.6"
+    "@babel/runtime" "7.1.2"
+    cornerstone-math "0.1.7"
 
-cornerstone-web-image-loader@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/cornerstone-web-image-loader/-/cornerstone-web-image-loader-1.0.0.tgz#664f3b78e7a11a55ce3a2732e360626570226f8c"
-  integrity sha1-Zk87eOehGlXOOicy42BiZXAib4w=
+cornerstone-web-image-loader@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/cornerstone-web-image-loader/-/cornerstone-web-image-loader-2.1.1.tgz#531262668d3b44fb461161c67d58ebcaefbae73d"
+  integrity sha512-EYT7nLyXMFDeCCQhDkf6czFUm58EgqiTX+tOOLt79gPvbNRdEvPgQoXJgXOd5/3Xuc5QNqzTyOzYtf1v/KH0aA==
 
 cosmiconfig@^2.1.0, cosmiconfig@^2.1.1:
   version "2.2.2"
@@ -5186,11 +5194,6 @@ jest@^21.2.0:
   dependencies:
     jest-cli "^21.2.1"
 
-jquery@^3.2.1:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
-  integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
-
 js-base64@^2.1.9:
   version "2.6.4"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.6.4.tgz#f4e686c5de1ea1f867dbcad3d46d969428df98c4"
@@ -7742,6 +7745,11 @@ regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
+
+regenerator-runtime@^0.12.0:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.12.1.tgz#fa1a71544764c036f8c49b13a08b2594c9f8a0de"
+  integrity sha512-odxIc1/vDlo4iZcfXqRYFj0vpXFNoGdKMAUieAlFYO6m/nl5e9KR/beGf41z4a1FI+aQgtjhuaSlDxQ0hmkrHg==
 
 regenerator-transform@^0.10.0:
   version "0.10.1"

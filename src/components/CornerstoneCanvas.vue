@@ -21,7 +21,7 @@
 
 <script>
 // External Dependencies
-import $ from 'jquery'
+// import $ from 'jquery'
 import { cornerstone, cornerstoneTools, cornerstoneWebImageLoader } from './csutil.js'
 
 // Here is how you register an image loader w/ Cornerstone
@@ -80,8 +80,8 @@ export default {
   },
   beforeDestroy () {
     // Remove jQuery event listeners
-    let canvas = this.$refs.canvas
-    $(canvas).off()
+    // let canvas = this.$refs.canvas
+    // $(canvas).off()
   },
   methods: {
     initCanvasTools: function () {
